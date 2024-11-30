@@ -10,6 +10,10 @@
   <body>
     <div class="container">
         <div class="alert alert-info display-1 text-center my-5">El salchi se la come 8=D</div>
+
+        <a href="{% url 'productoRegistro' %}" class="btn btn-primary mb-5">Registrar Productos</a>
+        <a href="{% url 'home' %}" class="btn btn-primary mb-5">Volver al menu Principal</a>
+
         <div>
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
@@ -52,7 +56,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <a href="" type="button" class="btn btn-danger">Confirmar</a>
+                                    <a href="{% url 'eliminarProducto' prod.id %}" type="button" class="btn btn-danger">Confirmar</a>
                                 </div>
                             </div>
                         </div>
