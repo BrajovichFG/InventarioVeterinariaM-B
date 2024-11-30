@@ -1,16 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'base/base.html' %}
+{% block tittle%}
+Index
+{% endblock %}
+
+{% block contenido %}
 <body>
-    <h1>login</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit">login</button>
-    </form> 
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card w-100 text-white bg-primary" style="max-width: 400px;">
+            <div class="card-body">
+                <h1 class="text-center mb-4">Login</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-success">Iniciar sesión</button>
+                        <button type="button" class="btn btn-success">Crear cuenta</button>
+                        <button type="button" class="btn btn-success">Volver al menú principal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+{% endblock %}
+

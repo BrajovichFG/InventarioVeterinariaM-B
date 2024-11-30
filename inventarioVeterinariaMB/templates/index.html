@@ -1,60 +1,94 @@
 {% extends 'base/base.html' %}
-{% block tittle%}
+{% block tittle %}
 Index
 {% endblock %}
 {% block contenido %}
-<!-- Botón de inicio de sesión -->
-    
-
-
-    <div class="container-fluid p-3 d-flex justify-content-between align-items-center">
-        <div>
-            {% if user.is_authenticated %}
-                <h6 class="mb-0">Bienvenido {{ user.username }}</h6>
-            {% else %}
-                <h6 class="mb-0">Bienvenido, No estás autenticado</h6>
-            {% endif %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Menú de navegación -->
+        <div class="col-12 col-md-2 bg-light border-end vh-100 position-fixed start-0">
+            <nav class="nav flex-column p-3">
+                <p>MENU DE NAVEGACION</p>
+                <a class="nav-link" href="#">Ingresar Productos</a>
+                <a class="nav-link" href="#">Ingresar Categorias</a>
+                <a class="nav-link" href="#">Cambiar</a>
+                <a class="nav-link" href="#">Cambiar</a>
+            </nav>
         </div>
-        <div>
-            {% if user.is_authenticated %}
-                <form action="{% url 'logout' %}" method="post" class="d-inline">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-danger btn-sm">Cerrar Sesión</button>
-                </form>
-            {% else %}
-                <a href="{% url 'login' %}" class="btn btn-outline-success btn-sm">Iniciar Sesión</a>
-            {% endif %}
+        <!-- Contenido principal -->
+        <div class="col-12 col-md-10 offset-md-2">
+            <!-- Botón de inicio de sesión -->
+            <div class="container-fluid p-3 d-flex justify-content-between align-items-center">
+                <div>
+                    {% if user.is_authenticated %}
+                        <h6 class="mb-0">Bienvenido {{ user.username }}</h6>
+                    {% else %}
+                        <h6 class="mb-0">Bienvenido, No estás autenticado</h6>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if user.is_authenticated %}
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Cerrar Sesion
+                      </button>
+                        
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-outline-success btn-sm">Iniciar Sesión</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Un momento...</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    Estas seguro que deseas salir?
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Cerrar Sesion</button>
+                      </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Presentación de la veterinaria -->
+            <div class="container mt-5">
+                <div class="bg-light p-5 rounded-lg text-center">
+                    <h1 class="display-4">Bienvenido a la Veterinaria M&B</h1>
+                    <p class="lead">Tu mejor opción para el cuidado de tus mascotas</p>
+                </div>
+            </div>
+
+            <!-- Información y botones -->
+            <div class="container text-center mt-5">
+                <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
+                <div class="d-grid gap-2 col-12 col-md-6 mx-auto mt-4">
+                    <a href="{% url 'productosData' %}" class="btn btn-primary btn-lg" type="button">Ver Productos</a>
+                    <button class="btn btn-secondary btn-lg" type="button">Administrar</button>
+                </div>
+            </div>
+
+            <!-- Pie de página -->
+            <footer class="footer mt-5 py-3 bg-light text-center">
+                <div class="container">
+                    <p class="mb-1">&copy; 2024 Veterinaria M&B. Todos los derechos reservados.</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Privacidad</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Términos</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Contacto</a></li>
+                    </ul>
+                </div>
+            </footer>
         </div>
     </div>
-
-
-
-    <!-- Presentación de la veterinaria -->
-    <div class="container mt-5">
-        <div class="bg-light p-5 rounded-lg text-center">
-            <h1 class="display-4">Bienvenido a la Veterinaria M&B</h1>
-            <p class="lead">Tu mejor opción para el cuidado de tus mascotas</p>
-        </div>
-    </div>
-
-    <!-- Información y botones -->
-    <div class="container text-center mt-5">
-        <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
-        <div class="d-grid gap-2 col-6 mx-auto mt-4">
-            <a href="{% url 'productosData' %}" class="btn btn-primary btn-lg" type="button">Ver Productos</a>
-            <button class="btn btn-secondary btn-lg" type="button">Administrar</button>
-        </div>
-    </div>
-
-    <!-- Pie de página -->
-    <footer class="footer mt-auto py-3 bg-light text-center">
-        <div class="container">
-            <p class="mb-1">&copy; 2024 Veterinaria M&B. Todos los derechos reservados.</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Privacidad</a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Términos</a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Contacto</a></li>
-            </ul>
-        </div>
-    </footer>
+</div>
 {% endblock %}
