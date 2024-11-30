@@ -1,27 +1,68 @@
 {% extends "base/base.html" %}
 
-{% block tittle %}
+{% block title %}
 Registro Usuarios
 {% endblock %}
 
 {% block contenido %}
-<body>
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="card text-white bg-primary mx-3" style="width: 100%; max-width: 400px;">
-            <div class="card-body">
-                <h1 class="text-center mb-4">Crear Cuenta</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-success">Registrarse</button>
-                        <a href="{% url 'login' %}" type="button" class="btn btn-success">Iniciar sesión</a>
-                        <button type="button" class="btn btn-success">Volver al menú principal</button>
+<body class="bg-gradient-primary">
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center w-100 m-0">
+
+            <!-- Columna que contiene el formulario -->
+            <div class="col-xl-6 col-lg-8 col-md-10">
+
+                <div class="card o-hidden border-0 shadow-lg w-100 h-100">
+                    <div class="card-body p-0 h-100 d-flex flex-column justify-content-center overflow-hidden">
+                        <!-- Formulario de Registro -->
+                        <div class="row no-gutters">
+                            <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                                <div class="p-4 w-100">
+
+                                    <div class="text-center mb-4">
+                                        <h1 class="h4 text-gray-900">Crear Cuenta</h1>
+                                    </div>
+
+                                    <!-- Formulario -->
+                                    <form method="post" class="user">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+
+                                        <div class="d-grid gap-2 mt-3">
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                                Registrarse
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                    <hr>
+                                    <div class="text-center">
+                                        <a href="{% url 'login' %}" class="small">¿Ya tienes una cuenta? Inicia sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-easing@3.0.0/jquery.easing.min.js"></script>
+
+    <!-- Custom styles for this template-->
+    <link href="https://cdn.jsdelivr.net/npm/sb-admin-2@4.0.5/css/sb-admin-2.min.css" rel="stylesheet">
+
 </body>
 {% endblock %}
-
