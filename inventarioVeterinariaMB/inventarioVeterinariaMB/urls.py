@@ -22,13 +22,9 @@ from gestorProductos.views import index,productosData,productoRegistro,eliminarP
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('usuarios/', include('gestorUser.urls')),#path global para gestorUser
     path('accounts/', include("django.contrib.auth.urls")),#autenticacion
     path('', TemplateView.as_view(template_name="index.html"),name='home'),
-
-
-
-    path('productosdata/', productosData, name='productosData'),
-    path('productoRegistro/', productoRegistro, name='productoRegistro'),
-    path('eliminarProducto/<int:id>/', eliminarProducto, name='eliminarProducto'),
+    path('productos/', include('gestorProductos.urls'))
 
 ]
