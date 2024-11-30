@@ -7,13 +7,20 @@ Index
     <div class="row">
         <!-- Menú de navegación -->
         <div class="col-12 col-md-2 bg-light border-end vh-100 position-fixed start-0">
-            <nav class="nav flex-column p-3">
-                <p>MENU DE NAVEGACION</p>
-                <a class="nav-link" href="#">Ingresar Productos</a>
-                <a class="nav-link" href="#">Ingresar Categorias</a>
-                <a class="nav-link" href="#">Cambiar</a>
-                <a class="nav-link" href="#">Cambiar</a>
-            </nav>
+            <div>
+                <nav class="nav flex-column p-3">
+                    <p> <u>MENU DE NAVEGACION</u> </p>
+                    {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                        <a class="nav-link" href="#">Ingresar Productos</a>
+                        <a class="nav-link" href="#">Ingresar Categorias</a>
+                        {% else %}
+                        <a class="nav-link" href="#">Ver listado de productos</a>
+                        <a class="nav-link" href="#">Ver nuestros servicios</a>
+                        {% endif %}
+                    {% endif %}
+                </nav>
+            </div>
         </div>
         <!-- Contenido principal -->
         <div class="col-12 col-md-10 offset-md-2">
@@ -21,7 +28,7 @@ Index
             <div class="container-fluid p-3 d-flex justify-content-between align-items-center">
                 <div>
                     {% if user.is_authenticated %}
-                        <h6 class="mb-0">Bienvenido {{ user.username }}</h6>
+                        <h6 class="mb-0">Bienvenido, <u>{{ user.username }}</u> </h6>
                     {% else %}
                         <h6 class="mb-0">Bienvenido, No estás autenticado</h6>
                     {% endif %}
