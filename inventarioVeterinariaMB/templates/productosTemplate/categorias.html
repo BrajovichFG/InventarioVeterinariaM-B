@@ -11,7 +11,7 @@
     <div class="container">
         <div class="alert alert-dark display-1 text-center my-5">Categorias M&B</div>
 
-        <a href="#" class="btn btn-outline-danger btn-sm mb-5">Registrar Categorias</a>
+        <a href="{% url 'categoriasRegistro' %}" class="btn btn-outline-danger btn-sm mb-5">Registrar Categorias</a>
         <a href="{% url 'home' %}" class="btn btn-outline-danger btn-sm mb-5">Volver al menu Principal</a>
 
         <div>
@@ -30,7 +30,7 @@
                         <th scope="row">{{cat.id}}</th>
                         <td>{{cat.nombre}}</td>
                         <td>
-                            <a href="" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'editarCategoria' cat.id %}" class="btn btn-warning btn-sm">Editar</a>
                             <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{cat.id}}">Eliminar</button>
                         </td>
                     </tr>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <a href="" type="button" class="btn btn-danger">Confirmar</a>
+                                    <a href="{% url 'eliminarCategoria' cat.id %}" type="button" class="btn btn-danger">Confirmar</a>
                                 </div>
                             </div>
                         </div>

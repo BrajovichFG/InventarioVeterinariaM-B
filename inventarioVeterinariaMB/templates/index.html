@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% block tittle %}
 Index
+{% load static %}
 {% endblock %}
 {% block contenido %}
 <div class="container-fluid">
@@ -12,8 +13,8 @@ Index
                     <p> <u>MENU DE NAVEGACION</u> </p>
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
-                        <a class="nav-link" href="#">Ingresar Productos</a>
-                        <a class="nav-link" href="#">Ingresar Categorias</a>
+                        <a class="nav-link" href="{% url 'productosData' %}">Ver Lista de Productos</a>
+                        <a class="nav-link" href="{% url 'categoriasData' %}">Ver lista de Categorias</a>
                         {% else %}
                         <a class="nav-link" href="#">Ver listado de productos</a>
                         <a class="nav-link" href="#">Ver nuestros servicios</a>
@@ -74,14 +75,16 @@ Index
                     <p class="lead">Tu mejor opción para el cuidado de tus mascotas</p>
                 </div>
             </div>
+            
+            
 
             <!-- Información y botones -->
             <div class="container text-center mt-5">
                 <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
-                <div class="d-grid gap-2 col-12 col-md-6 mx-auto mt-4">
+            <!--<div class="d-grid gap-2 col-12 col-md-6 mx-auto mt-4">
                     <a href="{% url 'productosData' %}" class="btn btn-primary btn-lg" type="button">Ver Productos</a>
                     <a href="{% url 'categoriasData' %}" type="button" class="btn btn-secondary btn-lg" type="button">Ver Categorias</a>
-                </div>
+                </div>-->
             </div>
 
             <!-- Pie de página -->

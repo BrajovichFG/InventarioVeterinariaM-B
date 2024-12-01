@@ -25,8 +25,7 @@ urlpatterns = [
     path('usuarios/', include('gestorUser.urls')),#path global para gestorUser
     path('accounts/', include("django.contrib.auth.urls")),#autenticacion
 
-    #path('', TemplateView.as_view(template_name="index.html"),name='home'),
-    path('', index, name='home'),
+    path('', TemplateView.as_view(template_name="index.html"),name='home'),
 
     path('productos/', include('gestorProductos.urls'))
 
