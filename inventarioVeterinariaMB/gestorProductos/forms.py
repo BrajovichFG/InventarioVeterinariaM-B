@@ -7,6 +7,7 @@ class CategoriaRegistroForm(forms.Form):
     nombre = forms.CharField()
 
     nombre.widget.attrs['class'] = 'form-control'
+    
 #para crear categoria
 class CategoriaRegistroForm(forms.ModelForm):
     nombre = forms.CharField()
