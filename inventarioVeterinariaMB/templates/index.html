@@ -1,8 +1,10 @@
 {% extends 'base/base.html' %}
+{% load static %}
+
 {% block tittle %}
 Index
-{% load static %}
 {% endblock %}
+
 {% block contenido %}
 <div class="container-fluid">
     <div class="row">
@@ -10,7 +12,7 @@ Index
         <div class="col-12 col-md-2 bg-light border-end vh-100 position-fixed start-0">
             <div>
                 <nav class="nav flex-column p-3">
-                    <p> <u>MENU DE NAVEGACION</u> </p>
+                    <p><u>MENU DE NAVEGACION</u> </p>
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
                         <a class="nav-link" href="{% url 'productosData' %}">Ver Lista de Productos</a>
@@ -68,23 +70,60 @@ Index
                 </div>
             </div>
 
+            <!-- Información y botones -->
+            <div class="container text-center mt-5">
+                <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
+            </div>
+            
             <!-- Presentación de la veterinaria -->
             <div class="container mt-5">
                 <div class="bg-light p-5 rounded-lg text-center">
-                    <h1 class="display-4">Bienvenido a la Veterinaria M&B</h1>
+                    <h1 class="display-4">Bienvenido a la Veterinaria M&B <img src="{% static 'img/animals.jpg' %}" height="150px" width="150px" alt=""></h1>
+
+                    
                     <p class="lead">Tu mejor opción para el cuidado de tus mascotas</p>
                 </div>
             </div>
             
-            
-
-            <!-- Información y botones -->
-            <div class="container text-center mt-5">
-                <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
-            <!--<div class="d-grid gap-2 col-12 col-md-6 mx-auto mt-4">
-                    <a href="{% url 'productosData' %}" class="btn btn-primary btn-lg" type="button">Ver Productos</a>
-                    <a href="{% url 'categoriasData' %}" type="button" class="btn btn-secondary btn-lg" type="button">Ver Categorias</a>
-                </div>-->
+            <!-- Servicios -->
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="bg-light p-4 rounded-lg text-center">
+                            <h3>Servicios de Hospitalización</h3>
+                            <p>Cuida de tus mascotas con nuestros servicios de hospitalización.</p>
+                            <img src="{% static 'img/hospitalizacion.jpg' %}" height="150px" width="200px" alt="hospitalizacion">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="bg-light p-4 rounded-lg text-center">
+                            <h3>Productos para tus Mascotas</h3>
+                            <p>Encuentra productos de calidad para el bienestar de tus mascotas.</p>
+                            <img src="{% static 'img/productos.png' %}" height="150px" width="200px" alt="productos">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="bg-light p-4 rounded-lg text-center">
+                            <h3>Desparacitación</h3>
+                            <p>Manten a tus mascotas libres de parásitos con nuestro servicio de desparacitación.</p>
+                            <img src="{% static 'img/desparacitacion.jpg' %}" height="150px" width="250px" alt="desparacitacion">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="bg-light p-4 rounded-lg text-center">
+                            <h3>Emergencias</h3>
+                            <p>Atendemos emergencias veterinarias las 24 horas, los 7 días de la semana.</p>
+                            <img src="{% static 'img/emergencias.jpg' %}" height="150px" width="250px" alt="emergencias">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 mb-4">
+                        <div class="bg-light p-4 rounded-lg text-center">
+                            <h3>Agendar</h3>
+                            <p>Agenda tus citas de manera rápida y sencilla.</p>
+                            <img src="{% static 'img/calendario.png' %}" height="110px" width="150px" alt="agendar">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Pie de página -->

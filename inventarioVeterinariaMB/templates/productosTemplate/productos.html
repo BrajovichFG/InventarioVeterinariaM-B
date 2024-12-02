@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% if productos %} <!-- Si existe algun producto -->
+                    {% if productos %} 
                     {% for prod in productos %}
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
