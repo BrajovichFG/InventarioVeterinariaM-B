@@ -30,18 +30,33 @@
                 <tbody>
                     {% if productos %} <!-- Si existe algun producto -->
                     {% for prod in productos %}
-                    <tr class="table-light">
-                        <th scope="row">{{prod.id}}</th>
-                        <td>{{prod.nombre}}</td>
-                        <td>{{prod.descripcion}}</td>
-                        <td>{{prod.precio}}</td>
-                        <td>{{prod.fecha_ingreso}}</td>
-                        <td>{{prod.categoria.nombre}}</td>
-                        <td>
-                            <a href="{% url 'editarProducto' prod.id %}" class="btn btn-warning btn-sm">Editar</a>
-                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{prod.id}}">Eliminar</button>
-                        </td>
-                    </tr>
+                    {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                        <tr class="table-light">
+                            <th scope="row">{{prod.id}}</th>
+                            <td>{{prod.nombre}}</td>
+                            <td>{{prod.descripcion}}</td>
+                            <td>{{prod.precio}}</td>
+                            <td>{{prod.fecha_ingreso}}</td>
+                            <td>{{prod.categoria.nombre}}</td>
+                            <td>
+                                <a href="{% url 'editarProducto' prod.id %}" class="btn btn-warning btn-sm">Editar</a>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{prod.id}}">Eliminar</button>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr class="table-light">
+                            <th scope="row">{{prod.id}}</th>
+                            <td>{{prod.nombre}}</td>
+                            <td>{{prod.descripcion}}</td>
+                            <td>{{prod.precio}}</td>
+                            <td>{{prod.fecha_ingreso}}</td>
+                            <td>{{prod.categoria.nombre}}</td>
+                            <td>
+                                <a href="{% url 'editarProducto' prod.id %}" class="btn btn-warning btn-sm">Editar</a>                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endif %}
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal{{prod.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
