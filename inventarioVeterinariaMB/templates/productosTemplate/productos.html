@@ -35,8 +35,8 @@ Productos M&B
                             <td>{{prod.descripcion}}</td>
                             <td>{{prod.precio}}</td>
                             <td>{{prod.fecha_ingreso}}</td>
-                            <td>{{prod.usuario.username}}</td>
                             <td>{{prod.categoria.nombre}}</td>
+                            <td>{{prod.usuario.username}}</td>
                             <td>
                                 <a href="{% url 'editarProducto' prod.id %}" class="btn btn-warning btn-sm">Editar</a>
                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{prod.id}}">Eliminar</button>
@@ -49,7 +49,6 @@ Productos M&B
                             <td>{{prod.descripcion}}</td>
                             <td>{{prod.precio}}</td>
                             <td>{{prod.fecha_ingreso}}</td>
-                              
                             <td>{{prod.categoria.nombre}}</td>
                             <td>{{prod.usuario.username}}</td>
                             <td>
