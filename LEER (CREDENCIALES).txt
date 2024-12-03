@@ -1,6 +1,6 @@
 Buenas tardes profesor, adjuntamos las credenciales para acceder a la veterinariaM&B creado por Martin Peñailillo y Brajovich Figueroa
 
-primero: importar la base de datos adjunta en la carpeta del proyecto
+primero:  crear una base de datos en XAMPP llamada veterinariaDB e importar la base de datos adjunta en la carpeta del proyecto
 
 segundo: inicializar proyecto
 
