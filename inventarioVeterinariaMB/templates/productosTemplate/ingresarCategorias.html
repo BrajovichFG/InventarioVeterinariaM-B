@@ -2,11 +2,13 @@
 {% block tittle %}
 Ingresar Categoria
 {% endblock %}
+{% load static %}
 {% block contenido %}
     <div class="container my-5">
 
-        <div class="alert alert-info display-1 text-center mb-5">
+        <div class="alert alert-light display-1 text-center mb-5">
             Categorias Productos M&B
+            <img src="{% static 'img/animals.jpg' %}" height="150px" width="150px" alt="">
         </div>
     <form method="post" class="col-6 offset-3 border border-3 border-info-secundary rounded p-4 bg-light">
 

@@ -7,27 +7,27 @@ Index
 
 {% block contenido %}
 <div class="container-fluid">
+
     <div class="row">
-        <!-- Menú de navegación -->
         <div class="col-12 col-md-2 bg-light border-end vh-100 position-fixed start-0">
             <div>
                 <nav class="nav flex-column p-3">
                     <p><u>MENU DE NAVEGACION</u> </p>
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
-                        <a class="nav-link" href="{% url 'productos_list' %}">Ver Lista de Productos</a>
+                        <a class="nav-link" href="{% url 'productosData' %}">Ver Lista de Productos</a>
                         <a class="nav-link" href="{% url 'categoriasData' %}">Ver lista de Categorias</a>
                         {% else %}
-                        <a class="nav-link" href="{% url 'productos_list' %}">Ver listado de productos</a>
+                        <a class="nav-link" href="{% url 'productosData' %}">Ver listado de productos</a>
                         <a class="nav-link" href="#">Ver nuestros servicios</a>
                         {% endif %}
                     {% endif %}
                 </nav>
             </div>
         </div>
-        <!-- Contenido principal -->
+
+        
         <div class="col-12 col-md-10 offset-md-2">
-            <!-- Botón de inicio de sesión -->
             <div class="container-fluid p-3 d-flex justify-content-between align-items-center">
                 <div>
                     {% if user.is_authenticated %}
@@ -72,19 +72,19 @@ Index
 
 
             
-            <!-- Presentación de la veterinaria -->
+
             <div class="container mt-5">
                 <div class="bg-light p-5 rounded-lg text-center">
                     <h1 class="display-4">Bienvenido a la Veterinaria M&B <img src="{% static 'img/animals.jpg' %}" height="150px" width="150px" alt=""></h1>
                 </div>
             </div>
 
-            <!-- Información y botones -->
+
             <div class="container text-center mt-5">
                 <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
             </div>
 
-            <!-- Servicios -->
+
             <div class="container mt-5">
                 <div class="row">
                     <div class="col-12 col-md-6 mb-4">
@@ -125,7 +125,7 @@ Index
                 </div>
             </div>
 
-            <!-- Pie de página -->
+
             <footer class="footer mt-5 py-3 bg-light text-center">
                 <div class="container">
                     <p class="mb-1">2024 Veterinaria M&B. Todos los derechos reservados.</p>

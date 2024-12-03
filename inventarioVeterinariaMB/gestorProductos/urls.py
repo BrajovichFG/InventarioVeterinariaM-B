@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django.urls import path,include
-from gestorProductos.views import index,productosData,productoRegistro,eliminarProducto,categoriasData,editarProducto,categoriaRegistro,editarCategoria,eliminarCategoria, productos_list
+from django.urls import path
+from gestorProductos.views import productosData,productoRegistro,eliminarProducto,categoriasData,editarProducto,categoriaRegistro,editarCategoria,eliminarCategoria
 
 
 urlpatterns = [
@@ -9,7 +9,6 @@ urlpatterns = [
     path('eliminarProducto/<int:id>/', eliminarProducto, name='eliminarProducto'),
     path('editarProducto/<int:id>/', editarProducto, name='editarProducto'),
 
-    path('productos_list/', productos_list, name='productos_list'),
     
     path('categoriasdata/', categoriasData, name='categoriasData'),
     path('categoriasregistro/', categoriaRegistro, name='categoriasRegistro'),
