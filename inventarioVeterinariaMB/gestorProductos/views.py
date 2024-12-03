@@ -20,8 +20,10 @@ def productosData(request):
 @login_required
 def productos_list(request):
     if request.user.is_superuser:
+        # Los superusuarios pueden ver todos los productos
         productos = Producto.objects.all()
     else:
+        # Los usuarios normales solo pueden ver los productos que ellos mismos crearon
         productos = Producto.objects.filter(usuario=request.user, usuario__is_superuser=False)
     return render(request, 'productosTemplate/productos.html', {'productos': productos})
 
@@ -56,7 +58,7 @@ def productoRegistro(request):
             producto = form.save(commit=False)
             producto.usuario = request.user
             producto.save()
-            return HttpResponseRedirect(reverse('productosData'))
+            return HttpResponseRedirect(reverse('productos_list'))
     else:
         form = ProductoRegistroForm()
     
