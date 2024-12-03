@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from gestorProductos.models import Producto, Categoria
 from gestorProductos.forms import ProductoRegistroForm,CategoriaRegistroForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 
@@ -16,6 +17,15 @@ def productosData(request):
     data = {'productos': productos}
     return render(request, 'productosTemplate/productos.html', data)
 
+@login_required
+def productos_list(request):
+    if request.user.is_superuser:
+        productos = Producto.objects.all()
+    else:
+        productos = Producto.objects.filter(usuario=request.user, usuario__is_superuser=False)
+    return render(request, 'productosTemplate/productos.html', {'productos': productos})
+
+
 
 @login_required
 def categoriasData(request):
@@ -24,9 +34,9 @@ def categoriasData(request):
     return render(request, 'productosTemplate/categorias.html', data)
 
 #funciones para producto
-def productoRegistro(request):
+
+#def productoRegistro(request):
     form = ProductoRegistroForm()
-    
     if request.method == 'POST':
         form = ProductoRegistroForm(request.POST)
         if form.is_valid():
@@ -36,6 +46,23 @@ def productoRegistro(request):
             
     data = {'form':form}  # Paso el formulario a la plantilla
     return render(request, 'ProductosTemplate/ingresarProductos.html',data)
+
+
+@login_required
+def productoRegistro(request):
+    if request.method == 'POST':
+        form = ProductoRegistroForm(request.POST)
+        if form.is_valid():
+            producto = form.save(commit=False)
+            producto.usuario = request.user
+            producto.save()
+            return HttpResponseRedirect(reverse('productosData'))
+    else:
+        form = ProductoRegistroForm()
+    
+    data = {'form': form}  # Paso el formulario a la plantilla
+    return render(request, 'ProductosTemplate/ingresarProductos.html', data)
+
 
 def eliminarProducto(request,id):
     producto = Producto.objects.get(id=id)

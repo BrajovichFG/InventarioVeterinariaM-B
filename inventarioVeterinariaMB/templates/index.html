@@ -15,7 +15,7 @@ Index
                     <p><u>MENU DE NAVEGACION</u> </p>
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
-                        <a class="nav-link" href="{% url 'productosData' %}">Ver Lista de Productos</a>
+                        <a class="nav-link" href="{% url 'productos_list' %}">Ver Lista de Productos</a>
                         <a class="nav-link" href="{% url 'categoriasData' %}">Ver lista de Categorias</a>
                         {% else %}
                         <a class="nav-link" href="{% url 'productosData' %}">Ver listado de productos</a>
@@ -70,21 +70,20 @@ Index
                 </div>
             </div>
 
-            <!-- Información y botones -->
-            <div class="container text-center mt-5">
-                <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
-            </div>
+
             
             <!-- Presentación de la veterinaria -->
             <div class="container mt-5">
                 <div class="bg-light p-5 rounded-lg text-center">
                     <h1 class="display-4">Bienvenido a la Veterinaria M&B <img src="{% static 'img/animals.jpg' %}" height="150px" width="150px" alt=""></h1>
-
-                    
-                    <p class="lead">Tu mejor opción para el cuidado de tus mascotas</p>
                 </div>
             </div>
-            
+
+            <!-- Información y botones -->
+            <div class="container text-center mt-5">
+                <p class="lead">En Veterinaria M&B, ofrecemos una amplia gama de servicios para asegurar la salud y el bienestar de tus mascotas. Desde consultas y vacunas hasta cirugías y cuidados especiales, estamos aquí para ayudarte.</p>
+            </div>
+
             <!-- Servicios -->
             <div class="container mt-5">
                 <div class="row">
@@ -120,7 +119,7 @@ Index
                         <div class="bg-light p-4 rounded-lg text-center">
                             <h3>Agendar</h3>
                             <p>Agenda tus citas de manera rápida y sencilla.</p>
-                            <img src="{% static 'img/calendario.png' %}" height="110px" width="150px" alt="agendar">
+                            <img src="{% static 'img/calendario.png' %}" height="120px" width="150px" alt="agendar">
                         </div>
                     </div>
                 </div>
@@ -129,12 +128,7 @@ Index
             <!-- Pie de página -->
             <footer class="footer mt-5 py-3 bg-light text-center">
                 <div class="container">
-                    <p class="mb-1">&copy; 2024 Veterinaria M&B. Todos los derechos reservados.</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Privacidad</a></li>
-                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Términos</a></li>
-                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Contacto</a></li>
-                    </ul>
+                    <p class="mb-1">2024 Veterinaria M&B. Todos los derechos reservados.</p>
                 </div>
             </footer>
         </div>

@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Categoria(models.Model):
@@ -13,4 +15,6 @@ class Producto(models.Model):
     precio = models.IntegerField()
     fecha_ingreso = models.DateField()
     categoria = models.ForeignKey(Categoria,null=True,blank=True,on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name="productos")
+    
 

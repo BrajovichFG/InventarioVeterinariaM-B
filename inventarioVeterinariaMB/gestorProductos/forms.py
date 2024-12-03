@@ -40,6 +40,7 @@ class ProductoRegistroForm(forms.ModelForm):
     precio = forms.IntegerField()
     fecha_ingreso = forms.DateField()
     categoria = forms.ModelChoiceField(queryset=Categoria.objects.all())
+    
 
     nombre.widget.attrs['class'] = 'form-control'
     descripcion.widget.attrs['class'] = 'form-control'
@@ -50,3 +51,4 @@ class ProductoRegistroForm(forms.ModelForm):
     class Meta:
         model = Producto
         fields = '__all__'
+        exclude = ['usuario']
